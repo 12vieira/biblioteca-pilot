@@ -1,6 +1,31 @@
 
 import prompt from "prompt-sync";
 import menuPrincipal from "../index.js";
+import { livros } from "../../data/livros.js";
+
+function cadastrarLivros() {
+    const input = prompt();
+    const book = {};
+    book.id = Math.floor(Math.random()*1000000).toString();
+    book.titulo = input("Digite o titulo do livro: ");
+    book.autor = input("digite o autor do livro: ");
+    book.editora = input("digite a editora do livro: ");
+    book.emprestado = false;
+
+    livros.push(book);
+}
+function listarLivros() {
+    //vou em cada livro e extraio id e titulo
+    livros.forEach(livro => {
+        console.log(`ID: ${livro.id} / Título: ${livro.titulo}`)
+    })
+}
+function excluirLivros(){
+    livros.pop();
+    livros.forEach(livro => {
+        console.log(`ID: ${livro.id} / Título: ${livro.titulo}`)
+    })
+}
 
 function menuLivros() {
     const input = prompt();
@@ -15,31 +40,36 @@ function menuLivros() {
     ]
 
     const booksMenu = options.join("\n");
-    console.log(booksMenu)
+    console.log(booksMenu);
     let opc = input("digite a opção: ")
-    if(opc == 0){
-        menuPrincipal();
-    } else if(opc == 1){
-        let a = 0; let b = 0; let c = 0; let d = 0;let e = 0;
-        a = input("Digite o ID do livro: ");
-        b = input("Digite o titulo do livro: ")
-        c = input("digite o autor do livro: ")
-        d = input("digite a editora do livro: ")
-        e = input("o livro está emprestado? ")
-        const book = {
-            id: a,
-            titulo: b,
-            autor: c,
-            editora: d,
-            emprestado: e
-        }
-        menuLivros();
-    } else if(opc == 4){
-        console.log(book);
-    }
-    else{
-        menuLivros();
+
+    console.clear();
+    switch (opc) {
+        case "0":
+            menuPrincipal();
+            break;
+        case "1":
+            cadastrarLivros();
+            menuLivros();
+            break;
+        case "2":
+            
+            menuLivros();
+            break;
+        case "3":
+            excluirLivros()
+            menuLivros();
+            break;
+        case "4":
+            listarLivros();
+            menuLivros();
+            break;
+        case "5":
+            
+            menuLivros();
+            break;
     }
 }
 
 export default menuLivros;
+

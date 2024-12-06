@@ -16,11 +16,25 @@ function menuPrincipal() {
 ];
     const menu = opcoes.join("\n");
     console.log(menu)
-    let opc = input('Digite a opção: ')
-    if (opc == 1){
-        menuLivros();
-    } else{
-        menuPrincipal();
+
+    let opc = input('Digite a opção: ');
+
+    console.clear();
+    
+    switch (opc) {
+        case "0":
+            
+            break;
+        case "1":
+            menuLivros();
+            break;
+        case "2":
+            
+            menuPrincipal();
+            break;
+        case "3":
+            menuPrincipal();
+            break;
     }
 }
 
