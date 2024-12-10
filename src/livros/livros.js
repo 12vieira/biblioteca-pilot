@@ -21,10 +21,50 @@ function listarLivros() {
     })
 }
 function excluirLivros(){
-    livros.pop();
+    const input = prompt();
+    const id = input(`Digite o ID do livro: `);
+    const index = livros.findIndex(livro => livro.id === id)
+    if (index >= 0){
+        livros.splice(index, 1);
+    } else{
+        console.log("Livro não encontrado! ")
+    }
     livros.forEach(livro => {
         console.log(`ID: ${livro.id} / Título: ${livro.titulo}`)
     })
+}
+
+function buscarId(){
+    const input = prompt();
+    const id = input("Digite o ID do livro: ");
+    const book = livros.find(livro => livro.id === id);
+    console.log(`ID: ${book.id}`);
+    console.log(`TITULO: ${book.titulo}`);
+    console.log(`AUTOR: ${book.autor}`);
+    console.log(`EDITORA: ${book.editora}`);
+    console.log(`EMPRESTADO: ${book.emprestado}`);
+}
+function editarLivro(){
+    const input = prompt();
+    console.log("+-------------------------+");
+    console.log("| Editar livro            |");
+    console.log("+-------------------------+");
+    const id = input("Digite o ID do livro: ");
+    const index = livros.findIndex(livro => livro.id === id)
+    if(index >= 0){
+        const titulo = input("| * Título: ")
+        const autor = input("| * Autor: ")
+        const editora = input("| * Editora: ")
+        livros[index] = { ...livros[index],titulo, autor, editora};
+        console.log("+----------------------------+");
+        console.log("| Livro editado com sucesso  |");
+        console.log("+----------------------------+");
+    } else{
+        console.log("+----------------------------+");
+        console.log("| Edição falhou!             |");
+        console.log("+----------------------------+");
+    }
+
 }
 
 function menuLivros() {
@@ -53,7 +93,7 @@ function menuLivros() {
             menuLivros();
             break;
         case "2":
-            
+            editarLivro();
             menuLivros();
             break;
         case "3":
@@ -65,7 +105,7 @@ function menuLivros() {
             menuLivros();
             break;
         case "5":
-            
+            buscarId();
             menuLivros();
             break;
     }

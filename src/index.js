@@ -3,8 +3,9 @@
 // mudar 'test' => "start": "node ./src/index.js", nome da pasta
 // import prompt from "prompt-sync" => const input = prompt(); => let test = input("digite seu nome");
 
-import prompt from "prompt-sync"
-import menuLivros from "./livros/livros.js"
+import prompt from "prompt-sync";
+import menuLivros from "./livros/livros.js";
+import menuUsuario from "./usuarios/usuarios.js";
 
 function menuPrincipal() {
     const input = prompt();
@@ -29,8 +30,7 @@ function menuPrincipal() {
             menuLivros();
             break;
         case "2":
-            
-            menuPrincipal();
+            menuUsuario();
             break;
         case "3":
             menuPrincipal();
