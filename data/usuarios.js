@@ -1,18 +1,18 @@
 export const usuarios = [
     {
-        cpf: Math.floor(Math.random()*100000000000).toString(),
+        cpf: "123.456.789-00",
         nome: "Antonio Luiz Pereira",
         telefone: "84997123645",
         email: "tonio@email.com",
     },
     {
-        cpf: Math.floor(Math.random()*100000000000).toString(),
+        cpf: "123.456.789-01",
         nome: "Ana Luiza Pereira",
         telefone: "84997789645",
         email: "lulu@email.com",
     },
     {
-        cpf: Math.floor(Math.random()*100000000000).toString(),
+        cpf: "123.456.789-02",
         nome: "Felipe Nascimento Coelho",
         telefone: "84997963645",
         email: "felipao@email.com",

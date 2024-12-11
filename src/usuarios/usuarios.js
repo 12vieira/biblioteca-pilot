@@ -90,12 +90,16 @@ function menuUsuario() {
     const input = prompt();
     
     const options = [
-        "1 - Cadastrar Usuário",
-        "2 - Editar Usuário",
-        "3 - Excluir Usuário",
-        "4 - Listar todos os Usuários",
-        "5 - Buscar Usuário por CPF",
-        "0 - Retornar ao menu principal"
+        "+--------------------------------+",
+        "| Menu Usuários                  |",
+        "+--------------------------------+",
+        "|1 - Cadastrar Usuário           |",
+        "|2 - Editar Usuário              |",
+        "|3 - Excluir Usuário             |",
+        "|4 - Listar todos os Usuários    |",
+        "|5 - Buscar Usuário por CPF      |",
+        "|0 - Retornar ao menu principal  |",
+        "+--------------------------------+"
     ]
 
     const userMenu = options.join("\n");

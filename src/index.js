@@ -6,14 +6,20 @@
 import prompt from "prompt-sync";
 import menuLivros from "./livros/livros.js";
 import menuUsuario from "./usuarios/usuarios.js";
+import menuEmprestimo from "./emprestimos/emprestimos.js";
+
 
 function menuPrincipal() {
     const input = prompt();
     const opcoes = [   
-    "1 - Menu livros",
-    "2 - Menu usuarios" ,
-    "3 - Menu emprestimos",
-    "0 - Sair"
+    "+--------------------------------+",
+    "| Menu Principal                 |",
+    "+--------------------------------+",
+    "|1 - Menu livros                 |",
+    "|2 - Menu usuarios               |" ,
+    "|3 - Menu emprestimos            |",
+    "|0 - Sair                        |",
+    "+--------------------------------+"  
 ];
     const menu = opcoes.join("\n");
     console.log(menu)
@@ -33,8 +39,10 @@ function menuPrincipal() {
             menuUsuario();
             break;
         case "3":
-            menuPrincipal();
+            menuEmprestimo();
             break;
+        default:
+            menuPrincipal();
     }
 }
 

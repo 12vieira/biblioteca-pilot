@@ -71,12 +71,16 @@ function menuLivros() {
     const input = prompt();
     
     const options = [
-        "1 - Cadastrar Livro",
-        "2 - Editar Livro",
-        "3 - Excluir Livro",
-        "4 - Listar todos os livros",
-        "5 - Buscar livro por ID",
-        "0 - Retornar ao menu principal"
+        "+--------------------------------+",
+        "| Menu Livros                    |",
+        "+--------------------------------+",
+        "|1 - Cadastrar Livros            |",
+        "|2 - Editar Livros               |",
+        "|3 - Excluir Livros              |",
+        "|4 - Listar todos os livros      |",
+        "|5 - Buscar Usuário por ID       |",
+        "|0 - Retornar ao menu principal  |",
+        "+--------------------------------+"
     ]
 
     const booksMenu = options.join("\n");
