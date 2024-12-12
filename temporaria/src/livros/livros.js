@@ -17,7 +17,7 @@ function cadastrarLivros() {
 function listarLivros() {
     //vou em cada livro e extraio id e titulo
     livros.forEach(livro => {
-        console.log(`ID: ${livro.id} / Título: ${livro.titulo}`)
+        console.log(`ID: ${livro.id} / Título: ${livro.titulo} / Emprestado: ${livro.emprestado}`);
     })
 }
 function excluirLivros(){

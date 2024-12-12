@@ -14,9 +14,9 @@ function realizarEmprestimo(){
     lender.id = input("Digite o ID: ");
     lender.cpfUsuario = input("Digite o CPF: ");
     lender.idLivro = input("Digite o ID do livro: ");
-    lender.dataEmprestimo = Date.now()
+    lender.dataEmprestimo = new Date().toLocaleDateString();
     //lender.dataEmprestimo = input("Digite a data de empréstimo: ");
-    lender.dataDevolucao = input("Digite a data de devolução: ");
+    //lender.dataDevolucao = input("Digite a data de devolução: ");
     emprestimos.push(lender);
     const lendBook = livros.find(livro => livro.id === lender.idLivro);
     lendBook.emprestado = true;
@@ -25,7 +25,23 @@ function realizarEmprestimo(){
     console.log("+----------------------------------------+");
 
 }
+function renovarEmprestimo(){
+    //tesste
+}
 
+function realizarDevolucao(){
+    console.log("+----------------------------------------+");
+    console.log("| Realizar Devolução                     |");
+    console.log("+----------------------------------------+");
+    const idBook = input("Digite o ID do livro emprestado: ");
+    const backBook = livros.find(livro => livro.id == idBook)
+    backBook.emprestado = false;
+    const backDate = emprestimos.find(emprestimo => emprestimo.idLivro === idBook)
+    backDate.dataDevolucao = new Date().toLocaleDateString();
+    console.log("+----------------------------------------+");
+    console.log("| Devolução Realizada!                   |");
+    console.log("+----------------------------------------+");
+}
 
 function listarEmprestimos(){
     console.log("+----------------------------------------+");
@@ -41,7 +57,20 @@ function listarEmprestimos(){
     console.log("| Empréstimos Realizado!                 |");
     console.log("+----------------------------------------+");
 }
+function buscarId(){
+    console.log("+----------------------------------------+");
+    console.log("| Empréstimo por ID:                     |");
+    console.log("+----------------------------------------+");
+    const idLend = input("Digite o ID do Empréstimo: ")
+    const idEmprestimo = emprestimos.find(emprestimo => emprestimo.id === idLend)
+    const userEmprestimo = usuarios.find(usuario => usuario.cpf === idEmprestimo.cpfUsuario)
+    const bookEmprestimo = livros.find(livro => livro.id === idEmprestimo.idLivro)
+    console.log("+------------------------------------------+");
+    console.log(`| ID: ${idEmprestimo.id} - Data de Empréstimo: ${idEmprestimo.dataEmprestimo}|`);
+    console.log(`| Usuário: ${userEmprestimo.nome} - Livro: ${bookEmprestimo.titulo}`);
+    console.log("+------------------------------------------+");
 
+}
 function menuEmprestimo() {
     const input = prompt();
     
